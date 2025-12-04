@@ -24,7 +24,7 @@ Contraintes du probleme:
 
 ## Modelistation du problème
   S0 : On a M(1,n), un tableau vide des couples (i,j) hommes/femmes où M(i) = j.\
-  A: A chaque homme, on le marrie a chaque femme qui est pas dans un couple.\ 
-  suc(s,a): Liste de hommes est femmes deja marrié \
+  A: A chaque homme, on le marrie a chaque femme qui est pas dans un couple.\
+  suc(s,a): Liste de hommes est femmes deja marrié.\
   T: Le tableau M avec la liste des couples (i,j) stables.\
   c(s,s'):0
