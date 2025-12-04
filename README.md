@@ -1,4 +1,4 @@
-# Projet_ARP
+# Projet_ARP - Modelisation algorithme de resolution marriage stable one-to-one
 Algorithme de resolution marriage stable one-to-one
 
 ## Description du Probleme - Mariage One-to-One
@@ -12,8 +12,8 @@ Exemple de listes de preference:
 Une situation est dit inestable, si il existe au moins un couple (A,B) et (C,D) tels que A prefère C et B prefère D. C'est a dire, aucun homme ni femme as envie de changer de couple.
 
 Contraintes du probleme:
-  Chaque couple doit etre stable => le mariage est optimal -> tout le monde est satisfait.
-  Chaque homme doit avoir 1 femme partenaire
+  Chaque couple doit etre stable => le mariage est optimal -> tout le monde est satisfait. \
+  Chaque homme doit avoir 1 femme partenaire\
   Chaque femme doit avoir 1 homme partenaire
 
 ### Redaction du probleme en 5 étapes:
@@ -22,4 +22,9 @@ Contraintes du probleme:
   -succeseur => suc(s,a) list des candidats pour l'etat S\
   -Etat Final => isterminal(S) -> un etat but est une valuation complete telle que chaque contrainte est satisfaite.\
 
-  
+## Modelistation du problème
+  S0 : On a M(1,n), un tableau vide des couples (i,j) hommes/femmes où M(i) = j.\
+  A: A chaque homme, on le marrie a chaque femme qui est pas dans un couple. 
+  suc(s,a): Liste de hommes est femmes deja marrié 
+  T: Le tableau M avec la liste des couples (i,j) stables.
+  c(s,s'):0
