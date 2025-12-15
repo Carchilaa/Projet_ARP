@@ -24,7 +24,15 @@ Contraintes du probleme:
 
 ## Modelistation du problème
   S0 : On a M(1,n), un tableau vide des couples (i,j) hommes/femmes où M(i) = j.\
-  A: A chaque homme, on le marrie a chaque femme qui est pas dans un couple.\
+  A: A chaque homme, on le marrie temporairement a une femme qui est pas dans un couple et on test la stabilité.\
   suc(s,a): Liste de hommes est femmes deja marrié.\
   T: Le tableau M avec la liste des couples (i,j) stables.\
   c(s,s'):0
+
+## Point importants du code.
+
+  Le code est divisé en 2 partie importantes:
+    - La verification de la stabilité \
+    - L'algorithme backtrack qui permet de generer les couples. \
+
+

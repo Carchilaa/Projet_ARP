@@ -24,45 +24,43 @@ preferencesFemmes = {
     "F8": ["H2", "H5", "H4", "H3", "H7", "H8", "H1", "H6"]
 }
 
-#Return vrai si preferences_list[i] prefere a sur b. Faux dans le cas contraire
 def  prefers(preferences_list,a, b):
     return preferences_list.index(a)<preferences_list.index(b)
 
-def is_stable(h, f, matching, preferencesH, preferencesF):
-    
-    for h2, f2 in matching.items():
+def is_stable(matching, preferencesH, preferencesF):
+    for h, f in matching.items():
+        for h2, f2 in matching.items():
         
-        #On saut la comparaison du couple (h,f) avec lui meme
-        if h2 == h:
-            continue
+            if h2 == h:
+                continue
         
-        if prefers(preferencesF[f2], h, h2) and prefers(preferencesH[h2], f,f2):
-            return False
-        
-        if prefers(preferencesF[f], h2, h) and prefers(preferencesH[h], f2,f):
-            return False
+            if prefers(preferencesH[h], f2, f) and prefers(preferencesF[f2], h,h2):
+                return False
     return True
 
 def backtrack(i,H, F, preferencesH, preferencesF, matching, married):
     
     if i == len(H):
-        return matching.copy()
+        if is_stable(matching, preferencesH, preferencesF):
+            return matching.copy()
+        return None
     
     h = H[i]
     
-    for f in F:
+    for f in preferencesH[h]:
         if f not in married:
-            if is_stable(h,f, matching, preferencesH, preferencesF):
-                matching[h] = f
-                married.add(f)
+            
+            matching[h] = f
+            married.add(f)
                 
-                result = backtrack(i + 1, H, F, preferencesH, preferencesF, matching, married)
-                if result is not None:
-                    return result
+            result = backtrack(i + 1, H, F, preferencesH, preferencesF, matching, married)
+            if result is not None:
+                return result
 
-                married.remove(f)
-                del matching[h]
+            married.remove(f)
+            del matching[h]
     return None
 
 
-print(backtrack(0, Hommes, Femmes, preferencesHommes, preferencesFemmes,{}, set()))
+matchs = backtrack(0, Hommes, Femmes, preferencesHommes, preferencesFemmes,{}, set())
+print(matchs)
