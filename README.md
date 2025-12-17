@@ -23,16 +23,22 @@ Contraintes du probleme:
   -Etat Final => isterminal(S) -> un etat but est une valuation complete telle que chaque contrainte est satisfaite.\
 
 ## Modelistation du problème
-  S0 : On a M(1,n), un tableau vide des couples (i,j) hommes/femmes où M(i) = j.\
-  A: A chaque homme, on le marrie temporairement a une femme qui est pas dans un couple et on test la stabilité.\
-  suc(s,a): Liste de hommes est femmes deja marrié.\
-  T: Le tableau M avec la liste des couples (i,j) stables.\
+  Etat Initial S0 : On a M(1,n), un tableau vide des couples (i,j) hommes/femmes où M(i) = j.\
+  Action A: A chaque homme, on le marrie temporairement a une femme qui est pas dans un couple et on test la stabilité.\
+  succeseur suc(s,a): Liste de hommes est femmes deja marrié.\
+  Etat final T: Le tableau M avec la liste des couples (i,j) stables.\
   c(s,s'):0
 
 ## Point importants du code.
 
   Le code est divisé en 2 partie importantes:
     - La verification de la stabilité \
-    - L'algorithme backtrack qui permet de generer les couples. \
+    - L'algorithme backtrack qui permet de generer les couples.
+
+**Pour la verification de la stabilité de tout les couples**, une fonction **is_stable()** qui prend comme parametres la liste des couples et les 2 liste des preferences de deux sexes. Pour dire que un couple est pas stable, on boucle sur tout les couples et pour chaque couple, on verifie si l'homme ne prefere pas une autre femme et de meme avec la femme. 
+
+
+**Pour la creation des couples**, l'algorithme backtrack ce charge de prendre un homme h et forme un couple avec tout les femmes qui ne sont pas marries encore. En suite, il repete le processus avec l'homme h + 1. Une fois tout les couples fait, il verifie la stabilite de la solution. Si elle est pas stable, on efface les couples faites. L'algorithme s'arrete lors que la premiere solution est trouvee. Mais ceci ne veux pas dire que il y a plus de une solution possible pour resoudre ce probleme.
+
 
 
