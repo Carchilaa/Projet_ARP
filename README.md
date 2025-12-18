@@ -41,4 +41,9 @@ Contraintes du probleme:
 **Pour la creation des couples**, l'algorithme backtrack ce charge de prendre un homme h et forme un couple avec tout les femmes qui ne sont pas marries encore. En suite, il repete le processus avec l'homme h + 1. Une fois tout les couples fait, il verifie la stabilite de la solution. Si elle est pas stable, on efface les couples faites. L'algorithme s'arrete lors que la premiere solution est trouvee. Mais ceci ne veux pas dire que il y a plus de une solution possible pour resoudre ce probleme.
 
 
+## Amelioration du probleme.
+
+Pour ameliorer l'efficacite de ce probleme on pourrais ajouter des heuristiques tels, lors de la recherche de couple pour un homme, a la place de chercher sur la liste des femmes, on pourrais chercher sur la liste des preferences de l'homme. En plus, on pourrais utiliser d'autres algorithmes plus puissants tels que le AC3, ou l'algorithme Gale and Shapley, qui est un algorithme greedy.
+
+
 
